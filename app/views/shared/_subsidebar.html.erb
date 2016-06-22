@@ -1,0 +1,25 @@
+<div class="w3-col l3 m3 s12  w3-hide-small ">
+	<div  class="w3-container ">
+		<div class="w3-card-2 w3-padding w3-white">
+		<div  class="fb-page" data-href="https://www.facebook.com/chaprynz" data-tabs="timeline" data-height="70"  data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+		</div><br>
+		<% @subcategories.each do |subcategory| %>
+			<% if !subcategory.homelogo? %>
+			<%= link_to [subcategory.category, subcategory], class: "w3-hover-text-blue" do %>	
+				<div style="margin-bottom:10px" class="w3-white  w3-card-2  r content w3-padding w3-container">
+					<div  class="w3-col s4 m4 ">
+  						<%= image_tag subcategory.image.url, style: "width:100%" %>
+					</div>
+					<div style="padding-left:10px;line-height:1.2;font-size:12px" class=" w3-col s8 m8  w3-container">
+					  <p><span ><span><strong><i class="fa fa-chevron-circle-down" aria-hidden="true"></i> <%= subcategory.name %></strong></span></span></strong></p>
+					  
+					</div>
+				</div>
+			<% end %>
+			<% end %>
+		<% end %>
+		
+	</div>
+	
+</div>
+

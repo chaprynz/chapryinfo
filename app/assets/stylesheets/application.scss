@@ -1,0 +1,23 @@
+@import 'w3.scss';
+@import 'font-awesome';
+@import "toastr";
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.w3-sidenav a,.w3-sidenav h4{padding:2px;}
+.w3-navbar a{padding-top:12px !important;padding-bottom:12px !important;}
+
+img {
+    width:100%;
+}
+
+.active .sidenav {
+    color:white;
+}
+
+.active .navbar {
+    color:orange;
+}
+
+iframe {
+    width:100%;
+    
+}

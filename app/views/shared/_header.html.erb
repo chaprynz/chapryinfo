@@ -1,0 +1,13 @@
+<ul class="w3-black w3-navbar w3-top w3-left-align w3-large" style="z-index:4;">
+  <li class="w3-opennav w3-right w3-hide-large">
+    <a class="w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+  </li>
+  <li><%= link_to "T.Quynh", root_path %></li>
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to category, class: "w3-hover-text-blue" do %>
+        <div class="navbar"><%= category.name %></div>
+      <% end %>
+    </li>
+  <% end %>  
+</ul>

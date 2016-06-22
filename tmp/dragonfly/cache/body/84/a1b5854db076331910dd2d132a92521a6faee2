@@ -1,0 +1,10 @@
+(function() {
+  $(document).on('page:change', function() {
+    return FB.init({
+      status: true,
+      cookie: true,
+      xfbml: true
+    });
+  });
+
+}).call(this);

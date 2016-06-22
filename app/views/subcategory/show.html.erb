@@ -1,0 +1,73 @@
+<% content_for :head do %>
+	<title><%= @subcategory.name %> | Chapry</title>
+	<!-- Open Graph data -->
+	<meta property="og:site_name" content="chapry">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="<%= @subcategory.name %>">
+	<meta property="og:description" content="<%= @subcategory.description %>">
+	<meta property="og:image" content="<%= @subcategory.image.url %>">
+<% end %>
+
+<%= render partial: "shared/header" %>
+<%= render partial: "shared/search" %>
+<div style="margin-top:10px" class="w3-hide-small w3-display-container w3-animate-opacity">
+  
+  <%= image_tag @subcategory.logoimage.url, style: "width:100%" %>
+  
+</div><br>
+<div  class="w3-main">
+	<div  class="w3-container ">
+		
+		<div  class="w3-hide-small w3-col l9 m9 s12">
+			<div style="margin-left:42px;margin-bottom:30px" class="w3-container w3-padding">
+				<% @posts.each do |post| %>
+						<%= link_to [post.subcategory, post] do %>
+							<div class="w3-padding  w3-col l4 m6">
+								<div class="w3-card-2 w3-white content">
+									<div class="w3-padding"><%= image_tag post.image.url, style: "width:100%" %></div>
+									<div style="min-height:100px;line-height:1.2;font-size:12px" class="w3-padding  w3-container">
+										<p style="color:#9E8383"><%= post.created_at.strftime("%d-%m-%Y") %></p>
+					  					<p><strong><%= post.title %></strong></p>
+									</div>
+								</div>
+							</div>	
+						<% end %>
+				<% end %>
+				</div>
+				<div class="w3-container w3-padding"><%= paginate @posts %></div>
+		</div>
+		
+		
+		<div class=" w3-hide-large w3-hide-medium   w3-white  ">
+		<div style="margin-top:42px" class="w3-container">
+		<% @posts.each do |post| %>
+			<% if !post.logo? %>
+			<%= link_to [post.subcategory, post] do %>
+				<div style="" class="w3-hover-shadow w3-padding w3-container">
+					<div style="" class="w3-col s4 m4 ">
+	  					<%= image_tag post.image.url, style: "width:100%" %>
+					</div>
+					<div style="padding-left:10px;line-height:1.2;font-size:12px" class=" w3-col s8 m8  w3-container">
+					  <p style="color:#9E8383"><%= post.created_at.strftime("%d-%m-%Y") %></p>
+					  <p><strong><%= post.title %></strong></p>
+					</div>
+				</div>	
+			<% end %>
+			<% end %>
+		<% end %>
+		<%= paginate @posts %>
+		
+	</div>	
+</div>
+		<%= render partial: "shared/subsidebar" %>
+	</div>
+</div>
+
+<%= render partial: "shared/footer" %>
+<script>
+for (var i = 0; i < document.links.length; i++) {
+    if (document.links[i].href == document.URL) {
+        document.links[i].className = 'active';
+    }
+}
+</script>

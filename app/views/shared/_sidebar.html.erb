@@ -1,0 +1,14 @@
+<!-- Sidenav -->
+<nav class="w3-padding-left w3-sidenav w3-collapse w3-dark-grey w3-animate-left" style="z-index:3;width:250px;margin-top:51px;">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hide-large" title="close menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div></div><br>
+  <% @posts.each do |post| %>
+    <% if post.a %>
+      <%= link_to [post.category, post], class: "w3-hover-text-white", style: "color:#929999;font-size:16px;font-weight:400" do %>
+        <div class="sidenav"><%= post.title %></div>
+      <% end %>
+    <% end %>
+  <% end %>  
+</nav>

@@ -1,0 +1,46 @@
+
+<div style="background:rgba(20, 20, 20, 0.8);max-width:360px;margin-top:100px" class="w3-padding-large w3-modal-content">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render partial: "shared/devisemes" %>
+  <h2 style="color:white">Đăng Ký</h2>
+  
+  
+  <div class="form-field">
+    
+    <%= f.text_field :name, autofocus: true, :class => "w3-input", :placeholder => "Name" %>
+  </div>
+  
+  <div class="form-field">
+    
+    <%= f.email_field :email, class: "w3-input  ", autofocus: true, :placeholder => "Email" %>
+  </div>
+
+  <div class="form-field">
+    <% if @validatable %>
+    <em  style="color:white">(tối thiểu <%= @minimum_password_length %> kí tự )</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "w3-input  ", :placeholder => "Mật khẩu" %>
+  </div><br>
+  
+  <div class="form-field">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "w3-input  ", :placeholder => "Xác nhận" %>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit "Đăng Ký", class: " w3-input w3-blue w3-hover-green" %>
+  </div> 
+  <div class="actions">
+    <p style="color:white">ĐĂNG KÝ VỚI</p>&nbsp; &nbsp; 
+    <%= link_to "facebook", user_omniauth_authorize_path(:facebook), class: "w3-btn w3-indigo w3-hover-green" %>
+    <%= link_to "google", user_omniauth_authorize_path(:google_oauth2), class: "w3-btn w3-red w3-hover-green" %>
+    
+    
+  </div><br>
+  
+  
+  <div><%= link_to "Đăng Nhập", new_session_path(resource_name),  class: "w3-input w3-hover-green w3-blue" %></div><br>
+  <div><%= link_to "Trở Lại Trang Chủ", root_path,  class: "w3-input w3-hover-green w3-blue" %></div><br>
+<% end %>
+
+</div>
+
